@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Signup Page</title>
+  </head>
+  <style>
+    div {
+      height: 400px;
+      width: 400px;
+      background-color: rgb(37, 141, 246);
+      border-radius: 10px;
+      margin-left: 450px;
+      padding-top: 15px;
+      margin-top: 100px;
+    }
+    body {
+      background-color: rgb(60, 57, 57);
+    }
+    h2 {
+      text-align: center;
+    }
+    input {
+      margin-left: 20px;
+      height: 20px;
+      width: 80%;
+    }
+    label {
+      margin-left: 20px;
+    }
+    button {
+      margin-left: 150px;
+      border-radius: 10px;
+      height: 40px;
+      width: 80px;
+      color: white;
+      background-color: rgb(254, 98, 98);
+    }
+    p {
+      margin-left: 65px;
+    }
+    p a {
+      color: white;
+    }
+    button:hover {
+      background-color: green;
+    }
+  </style>
+  <body>
+    <div>
+      <h2>SIGN UP</h2>
+      {% with messages = get_flashed_messages() %} {% if messages %}
+      <ul>
+        {% for message in messages %}
+        <li style="color: rgb(226, 0, 0)">{{ message}}</li>
+        {% endfor %}
+      </ul>
+      {% endif %} {% endwith %}
+      <form action="/signup" method="post">
+        <label> Email:</label><br />
+        <input type="email" name="email" id="email" required /><br /><br />
+        <label> Username:</label><br />
+        <input type="text" name="username" id="username" required /><br /><br />
+        <label> Password:</label><br />
+        <input
+          type="password"
+          name="password"
+          id="password"
+          required
+        /><br /><br />
+        <button>Sign Up</button>
+      </form>
+      <p>Already have an account? <a href="/login">Login here</a></p>
+    </div>
+  </body>
+</html>
